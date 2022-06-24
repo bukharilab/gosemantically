@@ -521,12 +521,12 @@
       
 			</div>
   <!-- </div> -->
-<!-- </div> -->
+</div>
 <div class="sidebar bottom" style="background: #f1f1f1; padding-top: 0px; padding-bottom: 0px;">
       <button id="downloadAs" class="mdc-button mdc-button--outlined mdc-button--dense mdc-ripple-upgraded" style="float: right; width: 100%; margin-top: 15px; display: none;" onclick="hideDownloadButton(); show('download-as');">Download As</button>
       <img alt="Add-on logo" class="logo" src="https://raw.githubusercontent.com/ignatov357/semanticly/master/logo.png" width="100%">
     </div>
- </div>  <!--this for the container -->
+ <!--</div>  this for the container -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="//bioportal.bioontology.org/widgets/minified/jquery.ncbo.tree-2.0.2.min.js"></script>
     <script>
@@ -535,9 +535,9 @@
 
        // code by asim
 
-
         var options = [];
-         let myjson = { "@type": "MedicalScholarlyArticle" };
+        // let myjson = {"@type": "MedicalScholarlyArticle","Article":[] };
+        let myjson = {"@type": "MedicalScholarlyArticle"};
         // function populate_dropdown() {
         $(document).ready(function(){
 
@@ -623,8 +623,9 @@
             result=emptyField(options[i]);
           }
           if (result !== "error") {
-          Object.assign(myjson, obj);
-          console.log(myjson);
+          //myjson['Article'].push(obj)
+          Object.assign(myjson,obj);
+          console.log("my json",myjson);
           }
           else{
              obj={};
@@ -836,6 +837,7 @@
 
           var new_html = '';
           $.each(thisAnnotations, function(key, value) {
+            //console.log("key",key,"value",value['link'])
             new_html += '<li class="mdc-list-item" style="cursor: pointer; padding: 0px 15px;" data-user-choice-index="' + recommenderAnnotation[1] + '" data-link="' + value['link'] + '" onClick="changeUserChoiceAnnotations(this); show(\'annotations\');">'
             + '<span class="mdc-list-item__text">' + value['prefLabel'] + ' (' + value['ontology'] + ')<span class="mdc-list-item__secondary-text">' + (value['definition'].length == 0 ? '' : value['definition'].split(/<[\S ]*?>/)[0] + '...') + '</span></span>'
             + '<span class="mdc-list-item__meta"><i class="material-icons" aria-hidden="true">arrow_forward</i></span></li>';
@@ -922,11 +924,6 @@
         }
       }
 
-
-
-
-
-
       function removeAnnotations() {
         annotatingEnabled = false;
         show('loader');
@@ -949,24 +946,28 @@
 
         document.body.removeChild(element);
       }
-
+  //// Code by Asim
       function saveAsHtml(highlightAnnotations = false) {
         google.script.run.withSuccessHandler(function(html) {
-          var schemaJson = {"@context": "http://schema.org", "@type": "MedicalEntity", "code": []};
-
+          var schemaJson = {"@type": "MedicalEntity", "code": [] };
+          var finalJson={"@context": "http://schema.org","thing":[]};
           var thisAnnotations = getUserChoiceAnnotations();
 
           for(var i = thisAnnotations.length - 1; i >= 0; i--) {
-            schemaJson['code'].push({"@type": "MedicalCode", "name": thisAnnotations[i].prefLabel, "codingSystem": thisAnnotations[i].ontology, "link": thisAnnotations[i].id});
+            console.log("all annotation",thisAnnotations[i])
+            schemaJson['code'].push({"@type": "MedicalCode", "name": thisAnnotations[i].prefLabel, "codingSystem": thisAnnotations[i].ontology, "url": thisAnnotations[i].link});
             if(highlightAnnotations) {
               html = html.insertAt(thisAnnotations[i].to, '</span>');
               html = html.insertAt(thisAnnotations[i].from - 1, '<span class="tippy" title="' + thisAnnotations[i].definition + '">');
             }
           }
-          schemaJson['code'].push(myjson);
-        console.log("schemajson",JSON.stringify(schemaJson));
+          finalJson['thing'].push(schemaJson,myjson)
+          //schemaJson['code'].push(myjson);
+          //var finalResult=Object.assign(schemaJson,myjson)
+          console.log("schemajson",JSON.stringify(finalJson));
+        //console.log("concatanate", schemaJson.push(myjson))
        
-          download('document.html', '<html><head><title><\/title><link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,800" rel="stylesheet">' + ((highlightAnnotations) ? '<script src="https://unpkg.com/tippy.js@2.5.4/dist/tippy.all.min.js"><\/script>' : '') + '<style>.container { font-family: Nunito Sans,Avenir,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Ubuntu,Cantarell,Helvetica Neue,Helvetica,Arial,sans-serif; font-size: 1.125rem; padding: 4%; margin: 0 auto; }' + ((highlightAnnotations) ? ' .tippy { background: rgba(255,202,223,.5); color: #d22489; outline: 0; border-bottom: 1px solid #f27da6; padding: 0 4px; font-weight: 600; cursor: help; }' : '') + '<\/style><script type="application/ld+json">' + JSON.stringify(schemaJson)+ '<\/script><\/head><body class="container"' + ((highlightAnnotations) ? ' onload="tippy(\'.tippy\');"' : '') + '>' + html + '<\/body><\/html>');
+          download('document.html', '<html><head><title><\/title><link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,800" rel="stylesheet">' + ((highlightAnnotations) ? '<script src="https://unpkg.com/tippy.js@2.5.4/dist/tippy.all.min.js"><\/script>' : '') + '<style>.container { font-family: Nunito Sans,Avenir,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Ubuntu,Cantarell,Helvetica Neue,Helvetica,Arial,sans-serif; font-size: 1.125rem; padding: 4%; margin: 0 auto; }' + ((highlightAnnotations) ? ' .tippy { background: rgba(255,202,223,.5); color: #d22489; outline: 0; border-bottom: 1px solid #f27da6; padding: 0 4px; font-weight: 600; cursor: help; }' : '') + '<\/style><script type="application/ld+json">' + JSON.stringify(finalJson)+'<\/script><\/head><body class="container"' + ((highlightAnnotations) ? ' onload="tippy(\'.tippy\');"' : '') + '>' + html + '<\/body><\/html>');
         }).withFailureHandler(function(msg, element) {}).getHtml();
 
         
@@ -974,19 +975,22 @@
 
       function saveAsJSON() {
         google.script.run.withSuccessHandler(function(html) {
-          //var schemaJson = {"@context": "http://schema.org", "@type": "MedicalEntity", "code": []};
-          var schemaJson = {};
+          var schemaJson = {"@context": "http://schema.org", "@type": "MedicalEntity", "code": []};
+          
+          //var schemaJson = {}; asim comm
           var thisAnnotations = getUserChoiceAnnotations();
 
 
 
          // for(var i = thisAnnotations.length - 1; i >= 0; i--) {
           for(var i = 0; i < thisAnnotations.length; i++) {
-            //schemaJson['code'].push({"@type": "MedicalCode", "name": thisAnnotations[i].prefLabel, "codingSystem": thisAnnotations[i].ontology, "link": thisAnnotations[i].id,"definition" : thisAnnotations[i].definition,});
-            schemaJson[thisAnnotations[i].prefLabel]=thisAnnotations[i].definition;
+            //made changes by asim
+            schemaJson['code'].push({"@type": "MedicalCode", "name": thisAnnotations[i].prefLabel, "codingSystem": thisAnnotations[i].ontology, "url": thisAnnotations[i].link,"definition" : thisAnnotations[i].definition,});
+            //schemaJson[thisAnnotations[i].prefLabel]=thisAnnotations[i].definition;
           }
           //alert(JSON.stringify(schemaJson));
-          console.log(JSON.stringify(schemaJson));
+          schemaJson.concatanate(myjson)
+          console.log("json file donwload",JSON.stringify(schemaJson));
 
           download('document.json', schemaJson);
         }).withFailureHandler(function(msg, element) {}).getHtml();
