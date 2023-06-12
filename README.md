@@ -15,24 +15,28 @@ Javascript, HTML, CSS, bootstrap, jquery
 - [Steve Mbouadeu](https://github.com/mbouadeus)
 - [Fazel Keshtkar](#)
 
-## Installation
+| Authors | Title | Paper Link |
+| --- | --- | --- |
+| Asim Abbas et al. | Biomedical scholarly article editing and sharing using holistic semantic uplifting approach | [Paper Link](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=gNtO-mYAAAAJ&sortby=pubdate&citation_for_view=gNtO-mYAAAAJ:Zph67rFs4hoC) |
+| Asim Abbas et al. | A Decentralized Environment for Biomedical Semantic Content Authoring and Publishing | [Paper Link](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=gNtO-mYAAAAJ&sortby=pubdate&citation_for_view=gNtO-mYAAAAJ:4DMP91E08xMC) |
 
-Install my-project with npm
+## Installation and Deployment
+
+Install the goSemantically adds-on in your Google Docs enviroment
 
 ```bash
-  npm install my-project
-  cd my-project
+  1. download the the project files from github
+  2. Open new document in Google Docs
+  3. In the Menu bar of Google Docs click on Extensions menu
+  4. Select Apps Script
+  5. Create two files with the name 'main.gs' and 'sidebar.html'
+  6. Copy the code from downloaded 'main.gs' and 'sidebar.html' then past
+  7. Click on Run button in the menu bar to run the code
+  8. After sucessful run of the code click on Deployment
+  9. Come back to the Google document you will see the 'Semantically' button in the menu bar
+  10. Click 'Semantically', finally the application will run
 ```
     
-## Deployment
-
-To deploy this project run
-
-```bash
-  npm run deploy
-```
-
-
 ## Demo
 
 Insert gif or link to demo
