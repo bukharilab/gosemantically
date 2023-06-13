@@ -10,10 +10,10 @@ Javascript, HTML, CSS, bootstrap, jquery
 
 ## Authors
 
-- [Dr.Syed Ahmad Chan Bukhari](https://github.com/bukharilab)
-- [Asim Abbas](https://github.com/TuriAsim)
-- [Steve Mbouadeu](https://github.com/mbouadeus)
-- [Fazel Keshtkar](#)
+- [Dr.Syed Ahmad Chan Bukhari](https://www.stjohns.edu/academics/faculty/syed-ahmad-chan-bukhari)
+- [Asim Abbas](https://www.linkedin.com/in/asim-abbas-b2891ab8/)
+- [Steve Mbouadeu](https://www.linkedin.com/in/stevembouadeu/)
+- [Fazel Keshtkar](https://www.stjohns.edu/academics/faculty/fazel-keshtkar)
 
 | Authors | Title | Paper Link |
 | --- | --- | --- |
