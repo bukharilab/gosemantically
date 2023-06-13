@@ -17,8 +17,8 @@ Javascript, HTML, CSS, bootstrap, jquery
 
 | Authors | Title | Paper Link |
 | --- | --- | --- |
-| [Asim Abbas et al.](https://www.researchgate.net/profile/Asim-Abbas-5) | Biomedical scholarly article editing and sharing using holistic semantic uplifting approach | [Paper Link](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=gNtO-mYAAAAJ&sortby=pubdate&citation_for_view=gNtO-mYAAAAJ:Zph67rFs4hoC) |
-| [Asim Abbas et al.](https://www.researchgate.net/profile/Asim-Abbas-5) | A Decentralized Environment for Biomedical Semantic Content Authoring and Publishing | [Paper Link](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=gNtO-mYAAAAJ&sortby=pubdate&citation_for_view=gNtO-mYAAAAJ:4DMP91E08xMC) |
+| Asim Abbas et al. | Biomedical scholarly article editing and sharing using holistic semantic uplifting approach | [Paper Link](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=gNtO-mYAAAAJ&sortby=pubdate&citation_for_view=gNtO-mYAAAAJ:Zph67rFs4hoC) |
+| Asim Abbas et al. | A Decentralized Environment for Biomedical Semantic Content Authoring and Publishing | [Paper Link](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=gNtO-mYAAAAJ&sortby=pubdate&citation_for_view=gNtO-mYAAAAJ:4DMP91E08xMC) |
 
 ## Installation and Deployment
 
