@@ -37,20 +37,11 @@ Install the goSemantically adds-on in your Google Docs enviroment
   10. Click 'Semantically', finally the application will run
 ```
     
-## Demo
-
-Insert gif or link to demo
-
-
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](image/demo.png)
 
 
-## Documentation
-
-[Documentation](https://linktodocumentation)
-
-
-![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
+## Project Logo
+![Logo](image/logo.png)
 
