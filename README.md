@@ -15,10 +15,11 @@ Javascript, HTML, CSS, bootstrap, jquery
 - [Steve Mbouadeu](https://www.linkedin.com/in/stevembouadeu/)
 - [Fazel Keshtkar](https://www.stjohns.edu/academics/faculty/fazel-keshtkar)
 
-| Authors | Title | Paper Link |
-| --- | --- | --- |
-| Asim Abbas et al. | Biomedical scholarly article editing and sharing using holistic semantic uplifting approach | [Paper Link](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=gNtO-mYAAAAJ&sortby=pubdate&citation_for_view=gNtO-mYAAAAJ:Zph67rFs4hoC) |
-| Asim Abbas et al. | A Decentralized Environment for Biomedical Semantic Content Authoring and Publishing | [Paper Link](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=gNtO-mYAAAAJ&sortby=pubdate&citation_for_view=gNtO-mYAAAAJ:4DMP91E08xMC) |
+| Authors | Title | Paper Link | Year |
+| --- | --- | --- | --- |
+| Asim Abbas et al. | A Decentralized Environment for Biomedical Semantic Content Authoring and Publishing | [Paper Link](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=gNtO-mYAAAAJ&sortby=pubdate&citation_for_view=gNtO-mYAAAAJ:4DMP91E08xMC) | 2023 |
+| Asim Abbas et al. | Biomedical scholarly article editing and sharing using holistic semantic uplifting approach | [Paper Link](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=gNtO-mYAAAAJ&sortby=pubdate&citation_for_view=gNtO-mYAAAAJ:Zph67rFs4hoC) | 2022 |
+
 
 ## Installation and Deployment
 
